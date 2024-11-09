@@ -53,4 +53,4 @@ steps:
           label: Up Next
           placeholder: Provide an overview of the team's key focus areas, priorities, or objectives for the upcoming week or month.
   - type: fill
-    template: "Wins: {{ data.wins }}\ Updates: {{ data.progressupdates }}\"
+template: "Wins: {{ data.wins }}\ Updates: {{ data.progressupdates }}\"
