@@ -1,0 +1,56 @@
+trigger: weeklyupdates
+title: Weekly Updates
+description: Structure to share updates
+surfaces:
+   - discussion
+steps:
+  - type: form
+    style: embedded
+    body:
+      - type: textarea
+        attributes:
+          id: wins
+          label: Key Wins and Achievements 🥇
+          placeholder: Use this section to highlight significant wins, accomplishments, or milestones that occurred over the past week. This can include both quantitative and qualitative successes.
+      - type: textarea
+        attributes:
+          id: progressupdates
+          label: Key Updates and Progress 📓
+          placeholder: Use this section to provide important updates on projects, initiatives, or areas of focus from the past week. This can include progress made, milestones achieved, or any notable developments.
+      - type: textarea
+        attributes:
+          id: kpis
+          label: Metrics, KPIs, and Performance 📊
+          placeholder: Include a section to provide updates on key metrics, performance indicators, and progress toward team goals. This can include both quantitative data and qualitative insights.
+      - type: textarea
+        attributes:
+          id: challenges
+          label: Challenges and Mitigation Strategies 🚧
+          placeholder: Highlight any challenges, obstacles, or issues the team is facing, and outline the strategies, plans, or actions being taken to address or mitigate them.
+      - type: textarea
+        attributes:
+          id: dependencies
+          label: Cross-Functional Collaboration and Dependencies 🤝
+          placeholder: Share updates on any cross-functional initiatives, collaborations, or dependencies that are critical to the team's success. This can include progress, coordination efforts, or areas that require further attention.
+      - type: textarea
+        attributes:
+          id: asks
+          label: Key Asks and Needs ❓
+          placeholder: Use this section to communicate any specific asks or needs from the LT or PLT. Clearly specify the question or request and the intended recipient.
+      - type: textarea
+        attributes:
+          id: riskmitigation
+          label: Risks and Mitigation 🆘
+          placeholder: Identify and communicate any risks or potential issues that the team has identified. Include information on the severity, potential impact, and any actions being taken to mitigate or address the risks.
+      - type: textarea
+        attributes:
+          id: celebrations
+          label: Celebrations
+          placeholder: Use this section to highlight any noteworthy achievements, recognitions, or positive moments worth celebrating. This is not specific to an LT audience.
+      - type: textarea
+        attributes:
+          id: upnext
+          label: Up Next
+          placeholder: Provide an overview of the team's key focus areas, priorities, or objectives for the upcoming week or month.
+  - type: fill
+    template: "Wins: {{ data.wins }}\ Updates: {{ data.progressupdates }}\"
