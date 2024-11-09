@@ -1,30 +1,52 @@
+# Learn more about the syntax here:
+# https://docs.github.com/early-access/github/save-time-with-slash-commands/syntax-for-user-defined-slash-commands
 ---
-name: weekly-updates
-description: PF Weekly Update
-body:
-- type: dropdown
-  attributes: 
-    label: Weekly Status Update
-    options: 
-    - label: "\U0001F7E2 Green (all good, on track to complete this quarter)"
-      value: "\U0001F7E2 Green"
-    - label: "\U0001F7E1 Yellow (some concerns, but under control and still expect to complete this quarter)"
-      value: "\U0001F7E1 Yellow"
-    - label: "\U0001F534 Red (blocked,help needed to complete this quarter)"
-      value: "\U0001F534 Red"
-- type: input
-  attributes:
-    label: Target date
-    format: date
-- type: textarea
-  attributes:
-    label: Update
-    placeholder: What deliverables have landed or decisions made? Please share links to artifacts when available. 
-- type: textarea
-  attributes: 
-    label: Up Next
-    placeholder: What deliverables or milestones are next?
-- type: textarea
-  attributes: 
-    label: Risks and Mitigations (optional)
-    placeholder: What are any risks or blockers surfaced? What is the mitigation plan? What help is needed? 
+trigger: project-status # <-- 👋 pick a trigger
+title: BCDR update   # <-- 👋 pick a title
+# Works everywhere by default. Uncomment to limit it to certain surfaces.
+# surfaces:
+#   - issue
+#   - pull_request
+#   - discussions
+description: This is an example
+
+# Each command has one or more steps. You can add up to 25 steps.
+steps:
+  # This displays a menu, similar to typing `@`.
+  - type: menu
+    id: some_options
+    label: Options
+    options:
+      - Item 1
+      - Item 2
+      - Item 3
+  # This displays a form with a dropdown, text input, and markdown editor.
+  - type: form
+    style: modal
+    body:
+      - type: dropdown
+        attributes:
+          label: Priority
+          options:
+          - label: "🟢 Normal"
+          - label: "⚠️ Important"
+          - label: "💥 Emergency"
+      - type: input
+        attributes:
+          label: Name
+          format: text
+      - type: textarea
+        attributes:
+          label: Message
+          placeholder: What happened?
+  # You can use slash commands to run GitHub Actions using repository_dispatch.
+  # Any input provided to menus or forms will be available from your workflow.
+  # - type: repository_dispatch
+  #   eventType: special_merge
+  # You can insert markdown into the markdown editor. The template property is
+  # processed as a Liquid template.
+  - type: fill
+    template: |-
+      Thank you for creating a slash command! See
+      Here is the data you provided: {{data}}
+      And here is some information about the command: {{command}}
