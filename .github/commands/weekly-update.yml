@@ -1,28 +1,20 @@
 # Learn more about the syntax here:
 # https://docs.github.com/early-access/github/save-time-with-slash-commands/syntax-for-user-defined-slash-commands
 ---
-trigger: project-status # <-- 👋 pick a trigger
-title: BCDR update   # <-- 👋 pick a title
+trigger: weekly-status # <-- 👋 pick a trigger
+title: Weekly update   # <-- 👋 pick a title
 # Works everywhere by default. Uncomment to limit it to certain surfaces.
 # surfaces:
 #   - issue
 #   - pull_request
 #   - discussions
-description: This is an example
+description: This a test template to collect weekly status updates
 
 # Each command has one or more steps. You can add up to 25 steps.
 steps:
-  # This displays a menu, similar to typing `@`.
-  - type: menu
-    id: some_options
-    label: Options
-    options:
-      - Item 1
-      - Item 2
-      - Item 3
   # This displays a form with a dropdown, text input, and markdown editor.
   - type: form
-    style: modal
+    style: embedded
     body:
       - type: dropdown
         attributes:
