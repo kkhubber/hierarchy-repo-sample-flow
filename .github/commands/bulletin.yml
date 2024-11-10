@@ -1,0 +1,61 @@
+---
+trigger: bulletin
+title: Test Weekly Updates for PF Core
+description: An important product or business update for the Platform Core organization.
+surfaces: [discussion]
+steps:
+  - type: form
+    style: embedded
+    actions:
+      submit: Review and submit
+    body:
+      - type: input
+        validations:
+          required: true
+        attributes:
+          id: headline
+          label: Headline
+          description: The headline of your post
+          placeholder: Keep it short, simple and clear. If you are sharing a link, use the title of the article.
+      - type: textarea
+        validations:
+            required: true
+        attributes:
+          id: target-audience
+          label: Target audience
+          placeholder: |
+            Who is this post for? What teams or roles should read this?
+
+            - Databases
+            - Technical
+            - Infra
+            - Product
+            
+            Not listed? Specify audience in the post.
+      - type: textarea
+        attributes:
+          id: summary
+          label: Summary
+          description: Summarize the post in a few sentences. Make it clear and concise.
+          placeholder: What is the post about? What is the key message you want to convey?
+      - type: textarea
+        attributes:
+          id: outcomes
+          label:  Outcomes
+          description: Is there a call to action? What does the audience need to take away from this post?
+          placeholder: Make it clear and concise
+  - type: fill
+    template: |-
+      ## {{ data.headline }}
+
+      **Target audience:** {{ data.target-audience }}
+      {% unless data.summary == blank %}
+      ### Summary
+
+      {{ data.summary }}
+      {% endunless %}
+      {%- unless data.outcomes == blank %}
+      ### Outcomes
+
+      {{ data.outcomes }}
+      {% endunless %}
